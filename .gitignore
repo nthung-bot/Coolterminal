@@ -1,0 +1,18 @@
+# Build output
+dist/
+dist_tools/
+build/
+Output/
+*.spec
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Installer temp
+_MEIPASS*/
+
+# Editor
+.vscode/
+.idea/
