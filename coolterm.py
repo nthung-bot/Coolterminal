@@ -19,10 +19,11 @@ if _pkg_dir not in sys.path:
     sys.path.insert(0, _pkg_dir)
 
 from coolterm_pkg.config_manager import (
-    load_config, get_accent, enable_ansi,
+    load_config, save_config, get_accent, enable_ansi,
     RESET, BOLD, DIM, COLOR_CODES,
 )
 from coolterm_pkg.sysinfo import collect
+from coolterm_pkg.updater import check_and_prompt
 
 
 # Windows 4-pane flag logo (visible width: 26 chars per line)
@@ -75,6 +76,8 @@ def run():
         right = info_lines[i] if i < len(info_lines) else ""
         print(f"  {left}   {right}")
     print()
+
+    check_and_prompt(cfg, save_config, accent, RESET, BOLD)
 
 
 if __name__ == "__main__":
