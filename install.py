@@ -267,16 +267,27 @@ def _setup_powershell(coolterm_path):
     if os.path.exists(profile_path):
         content = open(profile_path).read()
         if marker in content:
-            _ok("PowerShell profile already configured")
+            # Replace the existing block with the updated path
+            import re
+            content = re.sub(
+                rf"{re.escape(marker)}\n.*?\n",
+                f"{marker}\n" + f'if (Test-Path "{ct_ps}") {{ & "{ct_ps}" }}\n',
+                content,
+                flags=re.DOTALL,
+            )
+            with open(profile_path, "w") as f:
+                f.write(content)
+            _ok("PowerShell profile updated")
             return
 
     with open(profile_path, "a") as f:
         f.write(entry)
-    _ok(f"PowerShell profile updated")
+    _ok("PowerShell profile updated")
 
 
 def _setup_cmd_autorun(coolterm_path):
-    """Set CMD AutoRun to run CoolTerminal when a CMD window opens."""
+    """Set CMD AutoRun to run CoolTerminal when a CMD window opens.
+    Removes any previous CoolTerminal entries first to prevent accumulation."""
     try:
         key = winreg.CreateKeyEx(
             winreg.HKEY_CURRENT_USER,
@@ -288,14 +299,20 @@ def _setup_cmd_autorun(coolterm_path):
         except FileNotFoundError:
             current = ""
 
-        entry = f'"{coolterm_path}"'
-        if coolterm_path.lower() not in current.lower():
-            new_val = f"{current} & {entry}" if current.strip() else entry
-            winreg.SetValueEx(key, "AutoRun", 0, winreg.REG_SZ, new_val)
-            _ok("CMD AutoRun configured")
-        else:
-            _ok("CMD AutoRun already configured")
+        # Strip every token that references our install dir so re-running
+        # the installer never accumulates duplicate entries.
+        install_marker = os.path.join(APPDATA, "CoolTerminal").lower()
+        kept = [
+            tok.strip()
+            for tok in current.split("&")
+            if tok.strip() and install_marker not in tok.lower()
+        ]
+        kept.append(f'"{coolterm_path}"')
+        new_val = " & ".join(kept)
+
+        winreg.SetValueEx(key, "AutoRun", 0, winreg.REG_SZ, new_val)
         winreg.CloseKey(key)
+        _ok("CMD AutoRun configured")
     except Exception as exc:
         _warn(f"Could not configure CMD AutoRun: {exc}")
 
