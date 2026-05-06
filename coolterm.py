@@ -3,7 +3,7 @@
 CoolTerminal - System info display for Windows terminal.
 Runs automatically on terminal open.
 
-MIT License - https://github.com/NguyenTanHung/CoolTerminal
+MIT License - https://github.com/nthung-bot/Coolterminal
 """
 
 import os

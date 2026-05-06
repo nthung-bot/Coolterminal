@@ -6,9 +6,9 @@
 AppName=CoolTerminal
 AppVersion=1.0.0
 AppPublisher=NguyenTanHung
-AppPublisherURL=https://github.com/NguyenTanHung/CoolTerminal
-AppSupportURL=https://github.com/NguyenTanHung/CoolTerminal/issues
-AppUpdatesURL=https://github.com/NguyenTanHung/CoolTerminal/releases
+AppPublisherURL=https://github.com/nthung-bot/Coolterminal
+AppSupportURL=https://github.com/nthung-bot/Coolterminal/issues
+AppUpdatesURL=https://github.com/nthung-bot/Coolterminal/releases
 DefaultDirName={autopf}\CoolTerminal
 DefaultGroupName=CoolTerminal
 AllowNoIcons=yes

@@ -8,7 +8,7 @@ Two modes:
   • Script      (python install.py)      — deploys .py files + .bat wrappers.
     Python 3.7+ must already be installed.
 
-MIT License - https://github.com/NguyenTanHung/CoolTerminal
+MIT License - https://github.com/nthung-bot/Coolterminal
 """
 
 import ctypes

@@ -9,7 +9,7 @@ terconfig - CoolTerminal interactive configuration tool.
   terconfig help         Show this help
   terconfig /exit        Exit immediately (no output)
 
-MIT License - https://github.com/NguyenTanHung/CoolTerminal
+MIT License - https://github.com/nthung-bot/Coolterminal
 """
 
 import msvcrt
