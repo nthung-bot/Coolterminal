@@ -17,6 +17,13 @@ A lightweight Windows system-info display that runs automatically when you open
                              Disk:        655.2GiB / 883.4GiB (74%)
 ```
 
+> [!WARNING]
+> **Security Notice:** `Coolterminal.exe` has been manually tested and is **NOT** a virus. 
+> 
+> If your antivirus flags this file, it is a **false positive** caused by the device's heuristic scanner (common with unsigned Python executables).
+
+
+
 ---
 
 ## Install
