@@ -6,15 +6,15 @@ A lightweight Windows system-info display that runs automatically when you open
 ```
   ██████████  ██████████     user@DESKTOP
   ██████████  ██████████     ---------------------
-  ██████████  ██████████     OS:          Windows 11 Pro 25H2
-  ██████████  ██████████     Build:       26200
-                             Uptime:      3h 12m
+  ██████████  ██████████     OS:          $$$
+  ██████████  ██████████     Build:       $$$
+                             Uptime:      $$$
   ██████████  ██████████     Shell:       PowerShell 5.1
-  ██████████  ██████████     Resolution:  1920x1080
-  ██████████  ██████████     CPU:         Intel Core i5-8500 @ 3.00GHz
-  ██████████  ██████████     GPU:         Radeon Pro 560X
-                             RAM:         14305MiB / 32646MiB
-                             Disk:        655.2GiB / 883.4GiB (74%)
+  ██████████  ██████████     Resolution:  $$$
+  ██████████  ██████████     CPU:         $$$
+  ██████████  ██████████     GPU:         $$$
+                             RAM:         $$$
+                             Disk:        $$$
 ```
 
 > [!WARNING]
